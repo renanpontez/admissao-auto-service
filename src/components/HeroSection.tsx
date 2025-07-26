@@ -90,7 +90,7 @@ const HeroSection = ({ id }: HeroSectionProps) => {
                 <p className="font-normal font-sans text-primary-contrast text-xs sm:text-sm">
                   Segunda - Sexta
                   <br />
-                  08:30 as 18:00
+                  08:00 as 18:00
                 </p>
               </div>
             </FadeInView>
@@ -104,9 +104,26 @@ const HeroSection = ({ id }: HeroSectionProps) => {
                   Sapiranga
                 </h3>
                 <p className="font-normal font-sans text-primary-contrast text-xs sm:text-sm">
-                  Av. Presidente Arthur Bernardes, 2116
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Av.+Presidente+Arthur+Bernardes,+2116"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cursor-pointer"
+                  >
+                    Av. Presidente Arthur Bernardes, 2116
+                  </a>
                   <br />
-                  +55 85 99609-3955
+                  <a
+                    href={getWhatsAppLink(
+                      WHATSAPP_PHONE,
+                      WHATSAPP_DEFAULT_MESSAGE
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cursor-pointer"
+                  >
+                    +55 85 99609-3955
+                  </a>
                 </p>
               </div>
             </FadeInView>

@@ -47,7 +47,7 @@ const Frame = (): React.ReactElement => {
     { name: "Início", href: "#inicio" },
     { name: "Sobre", href: "#sobre" },
     { name: "Serviços", href: "#servicos" },
-    { name: "Contato", href: "#contato" },
+    { name: "Localização", href: "#localizacao" },
   ];
 
   // Função para scroll suave compensando o header fixo
@@ -59,13 +59,15 @@ const Frame = (): React.ReactElement => {
       e.preventDefault();
       const target = document.querySelector(href);
       if (target) {
-        const header = document.querySelector(".z-50"); // ou use um id/classe mais específica se preferir
-        const headerHeight = header ? (header as HTMLElement).offsetHeight : 0;
+        const header = document.getElementById("main-header");
+        const headerRect = header?.getBoundingClientRect();
+        const headerHeight = header ? header.offsetHeight : 0;
+        const topOffset = headerRect?.top ?? 0;
         const targetPosition =
           (target as HTMLElement).getBoundingClientRect().top +
           window.pageYOffset;
         window.scrollTo({
-          top: targetPosition - headerHeight - 8, // 8px extra para espaçamento
+          top: targetPosition - headerHeight - topOffset - 120,
           behavior: "smooth",
         });
       }
@@ -76,6 +78,7 @@ const Frame = (): React.ReactElement => {
 
   return (
     <motion.header
+      id="main-header"
       className="fixed top-0 left-0 w-full z-50 bg-white shadow"
       initial={{ opacity: 0, y: -100 }}
       animate={isMounted ? { opacity: 1, y: 0 } : {}}

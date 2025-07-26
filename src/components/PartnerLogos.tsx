@@ -16,7 +16,7 @@ const PartnerLogos: React.FC<PartnerLogosProps> = ({ partnerLogos }) => {
   return (
     <div className="w-full overflow-hidden opacity-40 max-w-[954px] 2xl:max-w-[1280px] ">
       <div className="relative w-full max-w-[954px] 2xl:max-w-[1280px] mx-auto px-4">
-        <div className="flex animate-[scroll_30s_linear_infinite] w-max">
+        <div className="flex animate-[scroll_60s_linear_infinite] w-max">
           {/* Primeira sequência */}
           {partnerLogos.map((logo) => (
             <div 
@@ -42,6 +42,7 @@ const PartnerLogos: React.FC<PartnerLogosProps> = ({ partnerLogos }) => {
             >
               <Image
                 className="h-9 w-auto 2xl:h-16 object-contain"
+                priority
                 alt={logo.alt}
                 src={logo.src}
                 width={80}

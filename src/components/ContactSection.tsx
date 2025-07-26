@@ -11,7 +11,7 @@ import FadeInView from "./animations/FadeInView";
 type ContactInfo = {
   id: number;
   title: string;
-  details: string;
+  details: string | React.ReactNode;
   icon: React.ReactNode;
 };
 
